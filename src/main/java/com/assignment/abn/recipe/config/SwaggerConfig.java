@@ -17,26 +17,16 @@ import java.util.Collections;
 @EnableSwagger2
 public class SwaggerConfig {
 
-    @Bean
-    public Docket api() {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .useDefaultResponseMessages(false)
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("com.assignment.abn.recipe.controller"))
-                .paths(PathSelectors.any())
-                .build()
-                .apiInfo(apiInfo());
-    }
+	@Bean
+	public Docket api() {
+		return new Docket(DocumentationType.SWAGGER_2).useDefaultResponseMessages(false).select()
+				.apis(RequestHandlerSelectors.basePackage("com.assignment.abn.recipe"))
+				.paths(PathSelectors.any()).build().apiInfo(apiInfo());
+	}
 
-    private ApiInfo apiInfo() {
-        return new ApiInfo(
-                "Recipe Manager Application Service",
-                "Documentation of the Recipe Manager Application Service.",
-                "0.0.1",
-                "",
-                ApiInfo.DEFAULT_CONTACT,
-                "",
-                "",
-                Collections.emptyList());
-    }
+	private ApiInfo apiInfo() {
+		return new ApiInfo("Recipe Manager Application Service",
+				"Documentation of the Recipe Manager Application Service.", "0.0.1", "", ApiInfo.DEFAULT_CONTACT, "",
+				"", Collections.emptyList());
+	}
 }
